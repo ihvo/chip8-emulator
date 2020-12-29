@@ -54,6 +54,8 @@ namespace Chip8
 
         private Random random = new Random(Environment.TickCount);
 
+        public event EventHandler DisplayUpdated;
+
         public ReadOnlySpan<byte> GetDisplayBuffer()
         {
             return new ReadOnlySpan<byte>(displayMemory);
@@ -482,6 +484,13 @@ namespace Chip8
                         displayMemory[pixelIndex] ^= 1;
                     }                    
                 }
+            }
+
+            var displayUpdateHandler = DisplayUpdated;
+
+            if (displayUpdateHandler != null)
+            {
+                displayUpdateHandler.Invoke(this, EventArgs.Empty);
             }
         }
 

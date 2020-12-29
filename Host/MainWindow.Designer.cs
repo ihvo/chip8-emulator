@@ -30,13 +30,7 @@ namespace Chip8.Host
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.renderingTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
-            // 
-            // renderingTimer
-            // 
-            this.renderingTimer.Interval = 20;
-            this.renderingTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainWindow
             // 
@@ -55,8 +49,6 @@ namespace Chip8.Host
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer renderingTimer;
     }
 }
 

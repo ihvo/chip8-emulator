@@ -38,10 +38,11 @@ namespace Chip8.Host
             this.DoubleBuffered = true;
             this.MinimumSize = new Size(Emulator.DisplayColumns, Emulator.DisplayRows);
 
-            this.emulator = emulator;            
+            this.emulator = emulator;
+            emulator.DisplayUpdated += Emulator_DisplayUpdated;
         }
 
-        private void timer1_Tick(object sender, System.EventArgs e)
+        private void Emulator_DisplayUpdated(object sender, EventArgs e)
         {
             this.Invalidate();
         }
